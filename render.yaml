@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: devtoolbox
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm test
+    startCommand: npm start

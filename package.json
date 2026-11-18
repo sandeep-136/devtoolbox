@@ -1,0 +1,17 @@
+{
+  "name": "devtoolbox",
+  "version": "1.0.0",
+  "description": "A small developer utility API and web UI: Base64, hashes, UUIDs, timestamps, JWT decoding, JSON formatting, case conversion and password generation.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

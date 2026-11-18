@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevToolbox - everyday developer utilities</title>
+  <meta name="description" content="Small, fast developer utilities in one place: Base64, hashes, UUIDs, timestamps, JWT decoding, JSON formatting, case conversion and password generation." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>DevToolbox</h1>
+    <p class="tagline">Eight small utilities developers reach for every day. One page, one API, no sign-up.</p>
+    <nav class="tool-nav">
+      <a href="#base64">Base64</a>
+      <a href="#hash">Hash</a>
+      <a href="#uuid">UUID</a>
+      <a href="#timestamp">Timestamp</a>
+      <a href="#jwt">JWT</a>
+      <a href="#json">JSON</a>
+      <a href="#case">Case</a>
+      <a href="#password">Password</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card" id="base64">
+      <h2>Base64 encode / decode</h2>
+      <textarea id="base64-input" rows="3" placeholder="Text to encode, or Base64 to decode"></textarea>
+      <div class="controls">
+        <select id="base64-mode">
+          <option value="encode">Encode</option>
+          <option value="decode">Decode</option>
+        </select>
+        <button data-tool="base64">Run</button>
+      </div>
+      <pre class="output" id="base64-output" hidden></pre>
+    </section>
+
+    <section class="card" id="hash">
+      <h2>Hash text</h2>
+      <textarea id="hash-input" rows="2" placeholder="Text to hash"></textarea>
+      <div class="controls">
+        <select id="hash-algorithm">
+          <option value="sha256">SHA-256</option>
+          <option value="sha512">SHA-512</option>
+          <option value="sha1">SHA-1</option>
+          <option value="md5">MD5</option>
+        </select>
+        <button data-tool="hash">Run</button>
+      </div>
+      <pre class="output" id="hash-output" hidden></pre>
+    </section>
+
+    <section class="card" id="uuid">
+      <h2>UUID generator</h2>
+      <p class="hint">Random v4 UUIDs, up to 50 at a time.</p>
+      <div class="controls">
+        <input id="uuid-count" type="number" min="1" max="50" value="5" />
+        <button data-tool="uuid">Generate</button>
+      </div>
+      <pre class="output" id="uuid-output" hidden></pre>
+    </section>
+
+    <section class="card" id="timestamp">
+      <h2>Timestamp converter</h2>
+      <p class="hint">Unix seconds, unix milliseconds, or a date string. Leave empty for now.</p>
+      <div class="controls">
+        <input id="timestamp-input" type="text" placeholder="1731931200 or 2026-11-18T10:00:00Z" />
+        <button data-tool="timestamp">Convert</button>
+      </div>
+      <pre class="output" id="timestamp-output" hidden></pre>
+    </section>
+
+    <section class="card" id="jwt">
+      <h2>JWT decoder</h2>
+      <p class="hint">Decodes the header and payload. The signature is never verified.</p>
+      <textarea id="jwt-input" rows="3" placeholder="Paste a JSON Web Token"></textarea>
+      <div class="controls">
+        <button data-tool="jwt">Decode</button>
+      </div>
+      <pre class="output" id="jwt-output" hidden></pre>
+    </section>
+
+    <section class="card" id="json">
+      <h2>JSON formatter</h2>
+      <textarea id="json-input" rows="4" placeholder='{"hello":"world"}'></textarea>
+      <div class="controls">
+        <button data-tool="json">Format</button>
+      </div>
+      <pre class="output" id="json-output" hidden></pre>
+    </section>
+
+    <section class="card" id="case">
+      <h2>Case converter</h2>
+      <textarea id="case-input" rows="2" placeholder="some words to convert"></textarea>
+      <div class="controls">
+        <select id="case-target">
+          <option value="camel">camelCase</option>
+          <option value="pascal">PascalCase</option>
+          <option value="snake">snake_case</option>
+          <option value="kebab">kebab-case</option>
+          <option value="constant">CONSTANT_CASE</option>
+          <option value="title">Title Case</option>
+          <option value="lower">lower case</option>
+          <option value="upper">UPPER CASE</option>
+        </select>
+        <button data-tool="case">Convert</button>
+      </div>
+      <pre class="output" id="case-output" hidden></pre>
+    </section>
+
+    <section class="card" id="password">
+      <h2>Password generator</h2>
+      <p class="hint">Generated with cryptographic randomness, never stored or logged.</p>
+      <div class="controls">
+        <input id="password-length" type="number" min="4" max="128" value="16" />
+        <label><input id="password-numbers" type="checkbox" checked /> Numbers</label>
+        <label><input id="password-symbols" type="checkbox" checked /> Symbols</label>
+        <button data-tool="password">Generate</button>
+      </div>
+      <pre class="output" id="password-output" hidden></pre>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>A project by Sandeep Sagar</p>
+    <p class="api-note">Every tool here is also an API endpoint under <code>/api</code>. See the README for examples.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
